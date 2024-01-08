@@ -100,7 +100,7 @@
             <a href="{{route('log')}}" class="nav-link">
                 <i class=" nav-icon fas fa-exit"></i>
               <p>
-                Logout
+                Logouts
               </p>
             </a>
           </li>

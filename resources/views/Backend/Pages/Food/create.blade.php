@@ -1,5 +1,14 @@
 @extends('Backend.app')
+@section('breadcrums')
+><li class="breadcrumb-item active"><a href="{{route('food')}}">Food List</a></li>
+<li class="breadcrumb-item active">Add food</li>
 
+
+@endsection
+@section('style')
+<link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+
+@endsection
 @section('content')
 <div class="col-md-12">
 
@@ -43,14 +52,7 @@
                       </select>
                     </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Description</label>
-                            <input type="text"  class="form-control" name="description" id="">
-                          </div>
 
-
-                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Price</label>
@@ -72,6 +74,15 @@
 
             </div>
 
+            <div class="col-md-12">
+                <label for="">Description</label>
+                <textarea class="h-75" id="summernote">
+
+                  </textarea>
+
+
+            </div>
+
 
 
           </div>
@@ -83,5 +94,24 @@
         </form>
       </div>
 </div>
+
+@endsection
+
+@section('script')
+<script src="/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function () {
+      // Summernote
+      $('#summernote').summernote()
+
+      // CodeMirror
+      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+      });
+    })
+  </script>
+
+
 
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FoodController;
@@ -46,8 +47,19 @@ Route::prefix('dashboard')->group(function(){
         Route::get('/food',[FoodController::class,'index'])->name('food');
         Route::get('/food/create',[FoodController::class,'create'])->name('food.create');
         Route::post('/food/create',[FoodController::class,'store'])->name('food.store');
+        Route::get('/food/edit/{id}',[FoodController::class,'edit'])->name('food.edit');
+        Route::post('/food/update/{id}',[FoodController::class,'update'])->name('food.update');
         Route::get('/food/view/{slug}',[FoodController::class,'show'])->name('food.show');
+        Route::get('/food/delete/{slug}',[FoodController::class,'delete'])->name('food.delete');
         Route::get('/l',[DashboardController::class,'logouts'])->name('log');
+        Route::get('/carousel',[CarouselController::class,'index'])->name('carousel');
+        Route::get('/carousel/create',[CarouselController::class,'create'])->name('carousel.create');
+        Route::post('/carousel/create',[CarouselController::class,'store'])->name('carousel.store');
+        Route::get('/show-carousel/{id}',[CarouselController::class,'ShowCarousel'])->name('show.carousel');
+        Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');
+
+
+
 
 
 

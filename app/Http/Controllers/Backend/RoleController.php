@@ -11,30 +11,30 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class RoleController extends Controller
 {
-    public function userHome(){
-       
+    public function userHome()
+    {
+
         $user = User::all();
-        return view('Backend.Pages.users',compact('user'));
+        return view('Backend.Pages.users', compact('user'));
     }
 
-    public function makeAdmin($id){
-        
-$user = User::findOrFail($id);
-$user->is_role = 1;
-$user->save();
-toast('Role Granted successfully','success');
+    public function makeAdmin($id)
+    {
 
-return redirect()->back();
+        $user = User::findOrFail($id);
+        $user->is_role = 1;
+        $user->save();
+        toast('Role Granted successfully', 'success');
+
+        return redirect()->back();
     }
 
-public function makeUSer($id){
-$user = User::findOrFail($id);
-$user->is_role = 0;
-$user->save();
-toast('Role Denied successfully','error');
-return redirect()->back();
-
-        
-        
+    public function makeUSer($id)
+    {
+        $user = User::findOrFail($id);
+        $user->is_role = 0;
+        $user->save();
+        toast('Role Denied successfully', 'error');
+        return redirect()->back();
     }
 }

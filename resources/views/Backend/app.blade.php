@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+  @yield('style')
     <title>Yout It</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -40,15 +41,15 @@
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Dashboard v1</li>
+                      <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+                      @yield('breadcrums')
                     </ol>
                   </div><!-- /.col -->
                 </div><!-- /.row -->
               </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-        
+
             <!-- Main content -->
             <section class="content">
               <div class="container-fluid">
@@ -64,7 +65,7 @@
 
 
     </div>
-   
+
 
 
 <script src="/plugins/jquery/jquery.min.js"></script>
@@ -100,5 +101,7 @@
 <script src="/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/dashboard.js"></script>
+
+@yield('script')
 </body>
 </html>

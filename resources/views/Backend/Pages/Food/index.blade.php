@@ -1,4 +1,7 @@
 @extends('Backend.app')
+@section('breadcrums')
+<li class="breadcrumb-item active">Foos List</li>
+@endsection
 @section('content')
     <div class="col-12">
         <div class="">
@@ -34,13 +37,13 @@
                                 <td>
                                     <img src="{{asset($foods->image)}}" height="45px" width="45px" alt="">
                                 </td>
-                                <td>{{$foods->price}}</td>
+                                <td>Rs. {{$foods->price}}</td>
                                 <td>{{$foods->category->category}}</td>
                                 <td>
 
-                                    <a href="{{route('food.show',$foods->id)}}"><button class="badge bg-success">View</button></a>
-                                    <a href=""><button class="badge bg-primary">Edit</button></a>
-                                    <a href=""><button class="badge bg-danger">Delete</button></a>
+                                    <a href="{{route('food.show',$foods->slug)}}"><button class="badge bg-success">View</button></a>
+                                    <a href="{{route('food.edit',$foods->id)}}"><button class="badge bg-primary">Edit</button></a>
+                                    <a href=" {{route('food.delete',$foods->id)}}"><button class="badge bg-danger">Delete</button></a>
                                 </td>
 
                             </tr>

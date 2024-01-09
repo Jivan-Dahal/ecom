@@ -44,8 +44,43 @@ class FoodController extends Controller
 
  public function show($slug){
 
-    $food = food::find($slug);
+    $food = Food::where('slug', $slug)->first();
 
     return view('Backend.Pages.Food.show',compact('food'));
+ }
+ public function edit($id){
+
+
+    $food = food::findorfail($id);
+    $category=Category::all();
+    return view('Backend.Pages.Food.edit',compact('food','category'));
+ }
+ public function update(Request $request,$id){
+    $food=food::findorfail($id);
+    $food->name=$request->food_name;
+    $food->price=$request->price;
+    $food->slug= Str::slug($request->slug,'-');
+    $food->description=$request->description;
+    $food->category_id=$request->category_id;
+    if($request->hasFile('image')){
+        $image =  $request->file('image');
+        $newImage = $image->hashName();
+        $image->move('image',$newImage);
+        $food->image = "image/$newImage";
+    }
+    $food->save();
+    toast('Food update','success');
+    return redirect()->back();
+
+ }
+
+
+
+ public function delete($id){
+    $food = food::findOrFail($id);
+    $food->delete();
+    toast( $food->name . " " .'Delete successfully');
+    return redirect()->back();
+
  }
 }

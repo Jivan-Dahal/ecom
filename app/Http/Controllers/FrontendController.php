@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
     public function home(){
-        $carousel=Carousel::all();
-  return view('Frontend.Home',compact('carousel'));
+
+
+        $carousel=Carousel::where('status',1)->get();
+        return view('Frontend.Home',compact('carousel'));
 }
 }

@@ -76,7 +76,7 @@
 
             <div class="col-md-12">
                 <label for="">Description</label>
-                <textarea class="h-75" id="summernote">
+                <textarea class="h-75" id="summernote" name="description">
 
                   </textarea>
 

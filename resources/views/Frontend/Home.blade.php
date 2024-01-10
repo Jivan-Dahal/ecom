@@ -3,15 +3,25 @@
 @section('ram')
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+
+        
+
+
+
+
+
         @foreach ($carousel as $c )
         @if ($c-> status==1)
         <div class="carousel-item active">
             <img src="{{asset($c->image)}}" height="500px" class="d-block w-100" alt="...">
           </div>
-        @endif
 
+          @endif
 
         @endforeach
+
+
+
 
 
     </div>

@@ -13,13 +13,7 @@
             <a class="nav-link" href="">Contact us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Contact list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Staff</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Staff List</a>
+            <a class="nav-link" href="{{ route('product') }}">Product</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

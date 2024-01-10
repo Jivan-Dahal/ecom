@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FoodController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,10 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/contact/delete/{id}',[Frontendcontroller::class,'delete'])->name('contact.delete');
 
     Route::get('/about',[Frontendcontroller::class,'about'])->name('about');
+    Route::get('/product',[ProductController::class,'index'])->name('product');
+    Route::get('/product/byCategory/{id}',[ProductController::class,'ByCategory'])->name('product.category');
+
+
    // Route::resource('/staff',StaffController::class)->name('any','staff');
 
 Route::prefix('dashboard')->group(function(){
@@ -56,16 +61,9 @@ Route::prefix('dashboard')->group(function(){
         Route::get('/carousel/create',[CarouselController::class,'create'])->name('carousel.create');
         Route::post('/carousel/create',[CarouselController::class,'store'])->name('carousel.store');
         Route::get('/show-carousel/{id}',[CarouselController::class,'ShowCarousel'])->name('show.carousel');
-        Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');
-
-
-
-
-
-
-
-        // Route::get('/food',)
+        Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');      // Route::get('/food',)
     });
+
 });
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

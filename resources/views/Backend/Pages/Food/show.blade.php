@@ -33,7 +33,7 @@
             </div>
             <div>
                 <span>Description:</span>
-                <span>{{$food->description}}</span>
+                <span>{!!$food->description!!}</span>
 
 
             </div>

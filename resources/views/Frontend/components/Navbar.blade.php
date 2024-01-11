@@ -27,7 +27,8 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a class="nav-link ">cart <span class="badge bg-danger">{{session()->get('cart') }}</span></a>
+            {{-- {{ $navCart }} --}}
           </li>
           <li class="nav-item">
             @if(Auth::user())

@@ -20,4 +20,9 @@ class ProductController extends Controller
         $category=Category::all();
 return view('Frontend.Page.Product.productCategory',compact('product','category'));
     }
+    public function show($slug){
+        $food = Food::where('slug', $slug)->first();
+
+    return view('Frontend.Page.Product.show',compact('food'));
+    }
 }

@@ -35,9 +35,9 @@
                                 </td>
                                 <td>
                                     @if ($c->status == 0)
-                                        <a href="{{ route('show.carousel', $c->id) }}"><button class=" badge bg-primary">show carousel</button></a>
+                                        <a href="{{ route('show.carousel', $c->id) }}"><button class=" badge bg-success">Active</button></a>
                                     @else
-                                        <a href="{{ route('hide.carousel', $c->id) }}"><button class=" badge bg-danger">hide carousel</button></a>
+                                        <a href="{{ route('hide.carousel', $c->id) }}"><button class=" badge bg-danger">Deactive</button></a>
                                     @endif
 
                                 </td>

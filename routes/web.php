@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FoodController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,8 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/about',[Frontendcontroller::class,'about'])->name('about');
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/product/byCategory/{id}',[ProductController::class,'ByCategory'])->name('product.category');
+    Route::get('/product/view/{slug}',[ProductController::class,'show'])->name('product.show');
+    Route::post('/cardt',[CartController::class,'cart'])->name('cart');
 
 
    // Route::resource('/staff',StaffController::class)->name('any','staff');

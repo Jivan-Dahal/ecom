@@ -78,6 +78,12 @@ class FoodController extends Controller
 
  public function delete($id){
     $food = food::findOrFail($id);
+    $imagename=$food->image;
+    $image_path = public_path().'/image/';
+    $file=$image_path .$imagename;
+    if(file_exists($file)){
+        unlink($file);
+    }
     $food->delete();
     toast( $food->name . " " .'Delete successfully');
     return redirect()->back();

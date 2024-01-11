@@ -38,6 +38,9 @@
                       <p class="card-text">{{ $f->name }}</p>
                       <p class="card-text">Rs. {{ $f->price }}</p>
                       <a href="">View more</a>
+                      <a href="{{route('product.show',$f->slug)}}"><button class="badge bg-success">View more..</button></a>
+
+
 
                     </div>
                 </div>

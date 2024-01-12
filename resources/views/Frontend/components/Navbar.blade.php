@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Contact us</a>
+            <a class="nav-link" href="{{ route('cart.show') }}">Cart</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('product') }}">Product</a>
@@ -27,7 +27,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link ">cart <span class="badge bg-danger">{{session()->get('cart') }}</span></a>
+            <a class="nav-link " href="{{ route('cart.show') }}">cart <span class="badge bg-danger">{{session()->get('cart') }}</span></a>
             {{-- {{ $navCart }} --}}
           </li>
           <li class="nav-item">

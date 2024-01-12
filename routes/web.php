@@ -36,7 +36,8 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/product/byCategory/{id}',[ProductController::class,'ByCategory'])->name('product.category');
     Route::get('/product/view/{slug}',[ProductController::class,'show'])->name('product.show');
-    Route::post('/cardt',[CartController::class,'cart'])->name('cart');
+    Route::post('/cart',[CartController::class,'cart'])->name('cart');
+    Route::get('/cart',[CartController::class,'index'])->name('cart.show');
 
 
    // Route::resource('/staff',StaffController::class)->name('any','staff');

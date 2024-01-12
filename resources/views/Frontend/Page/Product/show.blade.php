@@ -40,13 +40,14 @@
 
 
             </div>
-                    <input type="number" class="form-control w-25" name="quantity" id="">
+                    <input type="number" min="1" class="form-control w-25" name="quantity" id="">
             <div>
 
             </div>
             <div>
                 @if(Auth::user())
                 <a href="{{ route('cart') }}"><button class="btn btn-primary">Add to Cart</button></a>
+                <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" id="">
                 @else
                 <a href=" {{ route('login') }}"><button class="btn btn-primary">Add to Cart</button></a>
 
@@ -57,8 +58,11 @@
 
 
             </div>
-
+            {{-- @auth
             <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" id="">
+        @endauth --}}
+
+
             <input type="hidden" value="{{ $food->id }}" name="food_id" id="">
 
         </div>

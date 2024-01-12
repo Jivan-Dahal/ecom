@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+
     use HasFactory;
+    public function food(){
+        return $this->belongsTo(food::class);
+    }
 }

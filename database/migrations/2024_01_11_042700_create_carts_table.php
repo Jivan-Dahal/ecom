@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('quantity');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('food_id')->references('id')->on('food')->onDelete('cascade')->onUpdate('cascade');
+            $table->double('total_amount')->nullable();
             $table->timestamps();
         });
     }

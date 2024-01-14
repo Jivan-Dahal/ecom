@@ -15,7 +15,11 @@ class FrontendController extends Controller
 
 
         $carousel=Carousel::where('status',1)->get();
+    $foods=food::latest()->take(4)->get();
 
-        return view('Frontend.Home',compact('carousel'));
+
+        return view('Frontend.Home',compact('carousel','foods'));
 }
+
+
 }

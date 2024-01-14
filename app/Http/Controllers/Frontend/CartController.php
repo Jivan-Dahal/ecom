@@ -41,4 +41,7 @@ class CartController extends Controller
             return redirect()->back();
         }
     }
+    public function order(){
+        return view('Frontend.Page.Cart.order');
+    }
 }

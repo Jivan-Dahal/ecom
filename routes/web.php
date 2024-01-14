@@ -38,6 +38,9 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/product/view/{slug}',[ProductController::class,'show'])->name('product.show');
     Route::post('/cart',[CartController::class,'cart'])->name('cart');
     Route::get('/cart',[CartController::class,'index'])->name('cart.show');
+    Route::get('/order',[CartController::class,'order'])->name('order');
+    // Route::get('/latest',[FrontendController::class,'latest'])->name('latest');
+
 
 
    // Route::resource('/staff',StaffController::class)->name('any','staff');

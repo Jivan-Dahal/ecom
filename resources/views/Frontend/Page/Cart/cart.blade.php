@@ -20,7 +20,11 @@
                         <th>Action</th>
 
                     </tr>
+
                 </thead>
+                @php
+    $grandTotal = 0;
+@endphp
                 <tbody>
                     @foreach ($cart as $c)
                         <tr>
@@ -36,6 +40,9 @@
                             </td>
                             <td>
                                 {{ $c->total_amount }}
+                                @php
+                                $grandTotal += $c->total_amount;
+                            @endphp
                             </td>
                             <td>
                                 <a href=""><button class="badge bg-danger">Delete</button></a>
@@ -44,6 +51,17 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th style="text-align: right" colspan="5">Grand Total </th>
+                        <td>{{ $grandTotal }}</td>
+
+                        <td>
+                            <a href="{{ route('order',$c->user_id) }}"><button class="badge bg-success">Order Now</button></a>
+                        </td>
+                      </tr>
+                     </tfoot>
+                </tfoot>
 
             </table>
         </div>

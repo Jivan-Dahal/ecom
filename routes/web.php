@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FoodController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\ProductController;
@@ -36,9 +37,13 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/product/byCategory/{id}',[ProductController::class,'ByCategory'])->name('product.category');
     Route::get('/product/view/{slug}',[ProductController::class,'show'])->name('product.show');
-    Route::post('/cart',[CartController::class,'cart'])->name('cart');
+    Route::post('/carts',[CartController::class,'cart'])->name('cart');
     Route::get('/cart',[CartController::class,'index'])->name('cart.show');
-    Route::get('/order',[CartController::class,'order'])->name('order');
+    Route::get('/cart/remove_all/{user_id}',[CartController::class,'deleteAll'])->name('cart.deleteAll');
+    Route::get('/cart/delete/{id}',[CartController::class,'Delete'])->name('cart.delete');
+
+
+    Route::post('/cart',[CartController::class,'order'])->name('order');
     // Route::get('/latest',[FrontendController::class,'latest'])->name('latest');
 
 
@@ -68,7 +73,8 @@ Route::prefix('dashboard')->group(function(){
         Route::get('/carousel/create',[CarouselController::class,'create'])->name('carousel.create');
         Route::post('/carousel/create',[CarouselController::class,'store'])->name('carousel.store');
         Route::get('/show-carousel/{id}',[CarouselController::class,'ShowCarousel'])->name('show.carousel');
-        Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');      // Route::get('/food',)
+        Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');
+        Route::get('/order',[OrderController::class,'index'])->name('orders');
     });
 
 });

@@ -109,6 +109,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('orders') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Order
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('log') }}" class="nav-link">
                         <i class="nav-icon fas fa-sync-alt"></i>
                         <p>

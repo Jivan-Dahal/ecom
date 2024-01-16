@@ -12,4 +12,8 @@ class food extends Model
 
         return $this->belongsTo(Category::class);
     }
+    public function orderitem(){
+
+        return $this->hasMany(Category::class);
+    }
 }

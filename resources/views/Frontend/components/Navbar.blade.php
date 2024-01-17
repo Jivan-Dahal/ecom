@@ -31,6 +31,12 @@
             {{-- {{ $navCart }} --}}
           </li>
           <li class="nav-item">
+            @if (Auth::user())
+                <a class="nav-link" href="{{ route('order.show') }}">My Order</a>
+            @endif
+            {{-- {{ $navCart }} --}}
+          </li>
+          <li class="nav-item">
             @if(Auth::user())
             <form method="POST" action="{{ route('logout') }}">
               @csrf

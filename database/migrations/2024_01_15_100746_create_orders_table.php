@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->enum('order_status',['pending','processed','shipped','delivered','completed','failed'])->default('pending');
+            $table->string('fullname');
+            $table->string('address');
+            $table->string('number');
+            $table->double('total_price');
+            $table->enum('order_status',['pending','processed','shipped','delivered','returned','paid','failed'])->default('pending');
             $table->timestamps();
         });
     }

@@ -41,6 +41,7 @@ Route::get('/',[Frontendcontroller::class,'home'])->name('home');
     Route::get('/cart',[CartController::class,'index'])->name('cart.show');
     Route::get('/cart/remove_all/{user_id}',[CartController::class,'deleteAll'])->name('cart.deleteAll');
     Route::get('/cart/delete/{id}',[CartController::class,'Delete'])->name('cart.delete');
+    Route::get('/myOrder',[CartController::class,'MyOrder'])->name('order.show');
 
 
     Route::post('/cart',[CartController::class,'order'])->name('order');
@@ -75,6 +76,9 @@ Route::prefix('dashboard')->group(function(){
         Route::get('/show-carousel/{id}',[CarouselController::class,'ShowCarousel'])->name('show.carousel');
         Route::get('/hide-carousel/{id}',[CarouselController::class,'HideCarousel'])->name('hide.carousel');
         Route::get('/order',[OrderController::class,'index'])->name('orders');
+        Route::post('/order/{id}',[OrderController::class,'update'])->name('order.update');
+
+        // Route::get('/order/edit/{id}',[OrderController::class,'edit'])->name('order.edit');
     });
 
 });

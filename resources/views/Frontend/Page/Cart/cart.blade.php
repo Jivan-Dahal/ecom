@@ -86,23 +86,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Customer Name</label>
-                                    <input type="text" name="name" value="{{Auth::user()->name }}" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" name="fullname" value="{{Auth::user()->name }}" class="form-control" id="exampleInputEmail1"
                                         placeholder="Username">
 
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
                                     <input type="text" name="email" value="{{ Auth::user()->email }}" class="form-control" id="exampleInputEmail1"
                                         placeholder="Enter Email" readonly>
                                 </div>
 
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Contact No</label>
-                                    <input type="text" name="contact" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" name="number" class="form-control" id="exampleInputEmail1"
                                         placeholder="Enter phone no">
                                 </div>
 
@@ -112,23 +112,24 @@
                                     <label for="exampleInputEmail1">Address</label>
                                     <input type="text" name="address" class="form-control" id="exampleInputEmail1"
                                         placeholder="Enter Address">
+                                        <input type="hidden" name="total_price" value="{{ $grandTotal }}" class="form-control" id="exampleInputEmail1">
                                 </div>
 
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     @foreach ($cart as $c)
                                     <input type="hidden" name="food_name" value="{{ $c->food->name }} ({{ $c->quantity }})" class="form-control" id="exampleInputEmail1">
                                     <input type="hidden" name="food_id[]" value="{{$c->food ->id }}" class="form-control" id="exampleInputEmail1">
                                     @endforeach
-                                    <input type="hidden" name="total" value="{{ $grandTotal }}" class="form-control" id="exampleInputEmail1">
+
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" class="form-control" id="exampleInputEmail1">
 
                                 </div>
                                 <input type="text" name="order_id" value="{{ $orderId }}" class="form-control" id="exampleInputEmail1">
 
 
-                            </div>
+                            </div> --}}
                             <div class="d-flex justify-content-center">
                                 <div class="form-group">
                                     <button type="submit"  class="badge bg-success">Order</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderMail;
 use App\Models\Cart;
 use App\Models\food;
 use App\Models\Order;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Can;
 
@@ -63,6 +65,8 @@ class CartController extends Controller
 
 
     public function order(Request $request){
+
+        $user = Auth::user()->email;
         $order= new Order();
         $order->user_id = Auth::user()->id;
         $order->total_price= $request->total_price;
@@ -84,7 +88,11 @@ class CartController extends Controller
 
             }
 
+            Mail::to($user)->send(new OrderMail($user));
+
         }
+
+
         return redirect()->route('home')->with('success','Success! Your order has been placed');
 
     }
